@@ -1,5 +1,6 @@
 package com.lucasangelo.todosimple.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,11 @@ public class TaskService {
 
 }
 
+      public List <Task> findAllByteUserId(Long userId) {
+
+        List <Task> tasks = this.taskRepository.findByUser_Id(userId);
+        return tasks;
+      }
 
    @Transactional
 
