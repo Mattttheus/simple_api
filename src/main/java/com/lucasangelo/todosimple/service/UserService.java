@@ -52,13 +52,11 @@ public class UserService {
 
     public void delete(Long id) {
      FindByld(id);
-     
      try{
 
-        this.userRepository.deleteById(id);
-     }catch(Exception e) {
-
-        throw new RuntimeException("User not found" + id + "Não esta cadastrado");
+         this.userRepository.deleteById(id);
+       } catch (Exception e) {
+          throw new RuntimeException("Não foi possivel deletar o usuario");
      }
 
 
