@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 @Validated  
 
 public class UserController {

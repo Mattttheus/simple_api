@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("/tasks")
+@RequestMapping("/task")
 @Validated  
 
 public class TaskCotroller{
