@@ -1,6 +1,6 @@
 package com.lucasangelo.todosimple.models;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -12,7 +12,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -29,75 +29,74 @@ public class User {
 
 
      
-    public static  final String TABLE_NAME = "user"; 
-  
-
-    @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique=true)
-    
-    private Long id;
-
-    @Column(name = "username", length= 100, nullable = false, unique = true)
-    @NotNull (groups = CreateUser.class)
-    @NotEmpty (groups = CreateUser.class)
-    @Size(groups = {CreateUser.class}, min = 5, max = 100)
-    private String username;
-
-    @JsonProperty(access = Access.WRITE_ONLY)
-    @Column(name = "password", length= 60 , nullable = false)
-    @NotNull (groups = {CreateUser.class, UpdateUser.class})
-    @NotEmpty (groups = {CreateUser.class, UpdateUser.class})
-    @Size(groups = {CreateUser.class, UpdateUser.class}, min = 8, max = 60)
-    private String password;  
+    public static  final String TABLE_NAME = "user";
     
     
-    @OneToMany(mappedBy = "user")
-    private List<Task> Task = new ArrayList<Task>();   
-
-
-     public User(List<com.lucasangelo.todosimple.models.Task> task) {
-        Task = task;
-    }
-    public User() {
-    }
-     public User(Long id, String username, String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-     }
-
-
-     public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public List<Task> getTask() {
-       return Task;
-    }
-
-    public void setTask(List<Task> Task) {
-        this.Task = Task;
+        private static final List<Task> Task = null; 
+      
+    
+        @Id
+        @GeneratedValue (strategy = GenerationType.IDENTITY)
+        @Column(name = "id", unique=true)
+        
+        private Long id;
+    
+        @Column(name = "username", length= 100, nullable = false, unique = true)
+        @NotNull (groups = CreateUser.class)
+        @NotEmpty (groups = CreateUser.class)
+        @Size(groups = {CreateUser.class}, min = 5, max = 100)
+        private String username;
+    
+        @JsonProperty(access = Access.WRITE_ONLY)
+        @Column(name = "password", length= 60 , nullable = false)
+        @NotNull (groups = {CreateUser.class, UpdateUser.class})
+        @NotEmpty (groups = {CreateUser.class, UpdateUser.class})
+        @Size(groups = {CreateUser.class, UpdateUser.class}, min = 8, max = 60)
+        private String password;  
+        
+        
+        
+        
+                public User(List<com.lucasangelo.todosimple.models.Task> task) {
+                }
+                public User() {
+                }
+                 public User(Long id, String username, String password) {
+                    this.id = id;
+                    this.username = username;
+                    this.password = password;
+                 }
+            
+            
+                 public Long getId() {
+                    return id;
+                }
+            
+                public void setId(Long id) {
+                    this.id = id;
+                }
+            
+                public String getUsername() {
+                    return username;
+                }
+            
+                public void setUsername(String username) {
+                    this.username = username;
+                }
+            
+                public String getPassword() {
+                    return password;
+                }
+            
+                public void setPassword(String password) {
+                    this.password = password;
+                }
+            
+                public List<Task> getTask() {
+                   return Task;
+            }
+        
+            public void setTask(List<Task> Task) {
     }
 
     @Override

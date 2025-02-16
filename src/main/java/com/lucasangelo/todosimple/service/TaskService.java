@@ -29,13 +29,16 @@ public class TaskService {
 
          return task.orElseThrow(() -> new RuntimeException("Tarefa not found"));
 
-}
+    }
 
-      public List <Task> findAllByteUserId(Long userId) {
+       public List<Task> findAllByUserId(Long userid) {
+   
+        List<Task> tasks = this.taskRepository.findAllByUserId(userid);
+        return tasks;   
+        
+       }
 
-        List <Task> tasks = this.taskRepository.findByUser_Id(userId);
-        return tasks;
-      }
+
 
    @Transactional
 

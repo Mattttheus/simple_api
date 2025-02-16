@@ -30,11 +30,11 @@ public class Task {
     private Long id;	
     
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false, updatable = false)
     private User user;
 
 
-    @Column(name = "description", length=255, nullable = false)
+    @Column(name = "description", length = 255, nullable = false)
     @NonNull
     @NotEmpty
     @Size(min = 1, max = 255)
